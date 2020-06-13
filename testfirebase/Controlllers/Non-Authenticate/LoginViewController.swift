@@ -51,6 +51,9 @@ class LoginViewController: UIViewController {
     }
     @IBAction func btnRegister(_ sender: Any) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: SBIdentifier.RegisterVC.rawValue) as? RegisterViewController
+        if ((self.navigationController?.viewControllers.count ?? 0) - 1 > 0) {
+            self.navigationController?.viewControllers = (self.navigationController?.viewControllers.suffix(1))!
+        }
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
